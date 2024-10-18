@@ -1,5 +1,5 @@
 <h1 class="conatainer text-center p-9 uppercase ">
-  Cool.. Laravel Started...!.
+  This is the new route.
 </h1>
 
 <link href="../css/app.css" rel="stylesheet">
