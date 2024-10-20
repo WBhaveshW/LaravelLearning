@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,8 +87,12 @@ Route::get('/old_route', function () {
     return redirect()->route('new_route_name')->with('message', "Redirect from /old_route to /new_route");
 });
 
+Route::get('/getUser/{name?}/', [UserController::class, 'getUser']);
 
 
-// Route::get('/noblade', function () {
-//     // return redirect()->route('/blog');
-// });
+Route::get('/dummy_profile/{id?}', [UserController::class, 'getDummyProfile']);
+
+Route::post('/user/adduser', [UserController::class, 'addUser'])->name('user.add');
+Route::get('/user/createuser', [UserController::class, 'createUser'])->name('users.createuser');
+
+

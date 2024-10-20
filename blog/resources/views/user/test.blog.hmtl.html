@@ -1,24 +1,24 @@
 <!-- Question Item -->
 <li class="bg-white shadow-md rounded-lg p-4 transition-transform transform hover:scale-105 hover:shadow-inner">
-  <h2 class="text-xl font-semibold">Question 7:In Laravel, basic redirection and named route redirection seem similar.
-    Why are there two different methods? <br>While both methods serve the purpose of redirecting users, they have
-    different use cases:</h2>
+  <h2 class="text-xl font-semibold">Question 9:What is a Blade template in Laravel, and how can it be utilized?
+    <br>Blade is Laravel's templating engine that facilitates the creation of dynamic and reusable views within your
+    application.
+  </h2>
   <p class="mt-2 text-gray-600">
   <ul class="text-gray-600">
     <li>
       <div class="container mx-auto p-5">
-        <h1 class="text-2xl font-bold mb-4">Basic Redirection:</h1>
+        <h1 class="text-2xl font-bold mb-4">Using view()->exists() Method:</h1>
 
         <div class="relative bg-white pt-8 rounded shadow-md mb-4">
-          <button
-            class="copy-button absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-white font-bold py-1 px-2 rounded text-xs"
-            onclick="copyCode('.language-php', event)">Copy Code</button>
-          <div class="tooltip" id="tooltip">Copied!</div>
-          <pre>
-                <code class="language-php">Route::get('/old-url', function () {
-return redirect('/new-url');
-});</code>
-            </pre>
+          <ul>
+            <li><b>Creating a Blade View:</b> Blade views are saved in the resources/views directory with a .blade.php
+              extension. For instance,
+              you might create a file named welcome.blade.php that contains your HTML structure.</li>
+            <li><b>Rendering a View:</b> You can render a Blade view from a controller using the view() helper, such as
+              return
+              view('welcome');.</li>
+          </ul>
         </div>
       </div>
     </li>
@@ -26,42 +26,102 @@ return redirect('/new-url');
 
     <li>
       <div class="container mx-auto p-5">
-        <h1 class="text-2xl font-bold mb-4">Named Route Redirection:</h1>
+        <h1 class="text-2xl font-bold mb-4">Blade Syntax:
+          <br>
+          Variables: Use double curly braces to display variables, e.g., <p>Hello, {{ $name }}!</p>.
+          <br>
+          Control Structures: Blade supports control structures like if statements and loops:
+        </h1>
 
         <div class="relative bg-white pt-8 rounded shadow-md mb-4">
+          If Statements:
           <button
             class="copy-button absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-white font-bold py-1 px-2 rounded text-xs"
             onclick="copyCode('.language-php', event)">Copy Code</button>
           <div class="tooltip" id="tooltip">Copied!</div>
           <pre>
                     <code class="language-php">
-    Route::get('/old-route', function () {
-    return redirect()->route('new.route.name');
-    });
-    
-    Route::get('/new-route', function () {
-    return 'This is the new route.';
-    })->name('new.route.name');
+  @if($condition)
+  <p>Condition is true!</p>
+  @else
+  <p>Condition is false!</p>
+  @endif
 
-    
                   </code>
                 </pre>
         </div>
       </div>
     </li>
+    <li>
+      <div class="relative bg-white pt-8 rounded shadow-md mb-4">
+        Loops:
+        <button
+          class="copy-button absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-white font-bold py-1 px-2 rounded text-xs"
+          onclick="copyCode('.language-php', event)">Copy Code</button>
+        <div class="tooltip" id="tooltip">Copied!</div>
+        <pre>
+                          <code class="language-php">
+      @foreach($items as $item)
+      <li>{{ $item }}</li>
+      @endforeach
 
-    <ul>
-      <li>This method uses a named route, making it more maintainable.</li>
-      <li>
-        If the URL for new.route.name changes, you only need to update it in one place, reducing the risk of errors.
-      </li>
-      <li>
-        It enhances code readability and organization, especially in larger applications.</li>
-    </ul>
+      
+                        </code>
+                      </pre>
+      </div>
+      </div>
+    </li>
 
+
+    <li>
+      <div class="container mx-auto p-5">
+        <h1 class="text-2xl font-bold mb-4">Blade Components:
+          <br>You can create reusable components, enhancing modularity. For example, create an Alert component and use
+          it in your
+          views with <x-alert type="success" :message="$message" />.
+        </h1>
+
+        <div class="relative bg-white pt-8 rounded shadow-md mb-4">
+          Layouts and Sections:Define a layout using @yield and extend it in your views. This promotes a consistent
+          design across your application.
+          <button
+            class="copy-button absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-white font-bold py-1 px-2 rounded text-xs"
+            onclick="copyCode('.language-php', event)">Copy Code</button>
+          <div class="tooltip" id="tooltip">Copied!</div>
+          <pre>
+                        <code class="language-php">
+    <!-- In layout -->
+    @yield('content')
+
+
+                      </code>
+                    </pre>
+        </div>
+
+        <div class="relative bg-white pt-8 rounded shadow-md mb-4">
+          Blade Directives:
+          Blade offers built-in directives like @csrf for CSRF tokens and @auth or @guest for authentication checks.
+          <button
+            class="copy-button absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-white font-bold py-1 px-2 rounded text-xs"
+            onclick="copyCode('.language-php', event)">Copy Code</button>
+          <div class="tooltip" id="tooltip">Copied!</div>
+          <pre>
+                                <code class="language-php">
+            <!-- In layout -->
+            <!-- @yield('content') -->
+        
+        
+                              </code>
+                            </pre>
+        </div>
+      </div>
+    </li>
     <b>Summary</b>
     <ul>
-      <li>In summary, while both approaches achieve redirection, using named routes offers better maintainability and
-        clarity,
-        especially as applications grow or URLs change frequently.</li>
+      <li>Blade simplifies the process of building dynamic, maintainable views in Laravel, making it easier to manage
+        your
+        application's presentation layer</li>
     </ul>
+  </ul>
+  </p>
+</li>
